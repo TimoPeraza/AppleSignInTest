@@ -13,6 +13,7 @@
 		CEA49DED249D643100C42BE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA49DEB249D643100C42BE0 /* Main.storyboard */; };
 		CEA49DEF249D643300C42BE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA49DEE249D643300C42BE0 /* Assets.xcassets */; };
 		CEA49DF2249D643300C42BE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA49DF0249D643300C42BE0 /* LaunchScreen.storyboard */; };
+		CEA49DFD249D81F000C42BE0 /* AppleSignInClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA49DFC249D81F000C42BE0 /* AppleSignInClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		CEA49DEE249D643300C42BE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEA49DF1249D643300C42BE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEA49DF3249D643300C42BE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEA49DF9249D7E9C00C42BE0 /* AppleSignIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppleSignIn.entitlements; sourceTree = "<group>"; };
+		CEA49DFC249D81F000C42BE0 /* AppleSignInClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,7 @@
 		CEA49DE4249D643100C42BE0 /* AppleSignIn */ = {
 			isa = PBXGroup;
 			children = (
+				CEA49DF9249D7E9C00C42BE0 /* AppleSignIn.entitlements */,
 				CEA49DE5249D643100C42BE0 /* AppDelegate.swift */,
 				CEA49DE7249D643100C42BE0 /* SceneDelegate.swift */,
 				CEA49DE9249D643100C42BE0 /* ViewController.swift */,
@@ -63,6 +67,7 @@
 				CEA49DEE249D643300C42BE0 /* Assets.xcassets */,
 				CEA49DF0249D643300C42BE0 /* LaunchScreen.storyboard */,
 				CEA49DF3249D643300C42BE0 /* Info.plist */,
+				CEA49DFC249D81F000C42BE0 /* AppleSignInClient.swift */,
 			);
 			path = AppleSignIn;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				CEA49DEA249D643100C42BE0 /* ViewController.swift in Sources */,
 				CEA49DE6249D643100C42BE0 /* AppDelegate.swift in Sources */,
 				CEA49DE8249D643100C42BE0 /* SceneDelegate.swift in Sources */,
+				CEA49DFD249D81F000C42BE0 /* AppleSignInClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,17 +290,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AppleSignIn/AppleSignIn.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q6ASJ5TUWQ;
+				DEVELOPMENT_TEAM = WNU857N39T;
 				INFOPLIST_FILE = AppleSignIn/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rootstrap.applesignin.AppleSignIn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rootstrap.applesignin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -302,17 +312,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AppleSignIn/AppleSignIn.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q6ASJ5TUWQ;
+				DEVELOPMENT_TEAM = WNU857N39T;
 				INFOPLIST_FILE = AppleSignIn/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rootstrap.applesignin.AppleSignIn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rootstrap.applesignin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
