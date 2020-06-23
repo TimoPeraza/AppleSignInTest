@@ -12,27 +12,35 @@ import AuthenticationServices
 class ViewController: UIViewController {
 
     let appleProvider = AppleSignInClient()
+	lazy var appleButton = ASAuthorizationAppleIDButton()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        let appleBtn = ASAuthorizationAppleIDButton()
-        self.view.addSubview(appleBtn)
-        appleBtn.addTarget(self, action: #selector(SignInWithAppleAction(sender:)), for: .touchUpInside)
-        appleBtn.center = self.view.center
+		super.viewDidLoad()
+		
+		setupLayout()
+		appleButton.addTarget(
+			self,
+			action: #selector(SignInWithAppleAction(sender:)),
+			for: .touchUpInside
+		)
     }
+	
+	private func setupLayout() {
+		view.addSubview(appleButton)
+		appleButton.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			appleButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+			appleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+		])
+	}
 
     @objc
     func SignInWithAppleAction(sender: ASAuthorizationAppleIDButton) {
-
         appleProvider.handleAppleIdRequest(block: { fullName, email, token in
-            // receive data in login class.
-            
-            
-            
-        })
+			// Send data to your server for validation, etc
+			// Bear in mind that token and email will only be provided the first time
+			// the Apple ID account is authorized to use Apple Sign in.
+		})
     }
-
 }
 
