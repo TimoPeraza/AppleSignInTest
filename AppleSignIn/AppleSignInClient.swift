@@ -8,10 +8,10 @@
 
 import AuthenticationServices
 
+@available(iOS 13.0, *) // sign in with apple is not available below iOS13
 class AppleSignInClient: NSObject {
     var completionHandler: (_ fullname: String?, _ email: String?, _ token: String?) -> Void = { _, _, _ in }
 
-    @available(iOS 13.0, *) // sign in with apple is not available below iOS13
     @objc func handleAppleIdRequest(block: @escaping (_ fullname: String?, _ email: String?, _ token: String?) -> Void) {
         completionHandler = block
         let appleIDProvider = ASAuthorizationAppleIDProvider()
@@ -22,7 +22,6 @@ class AppleSignInClient: NSObject {
         authorizationController.performRequests()
     }
 
-    @available(iOS 13.0, *) // sign in with apple is not available below iOS13
     func getCredentialState(userID: String) {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         appleIDProvider.getCredentialState(forUserID: userID) { credentialState, _ in
@@ -43,7 +42,6 @@ class AppleSignInClient: NSObject {
     }
 }
 
-@available(iOS 13.0, *)
 extension AppleSignInClient: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
