@@ -48,7 +48,15 @@ extension AppleSignInClient: ASAuthorizationControllerDelegate {
             let userIdentifier = appleIDCredential.user
             let fullName = appleIDCredential.fullName
             let email = appleIDCredential.email
+            print("Credenciales \(appleIDCredential)")
+            print("*********************************")
             print("User id is \(userIdentifier) \n Full Name is \(String(describing: fullName)) \n Email id is \(String(describing: email))")
+            
+            var authorizationCode : String?
+            if let code = appleIDCredential.authorizationCode {
+                authorizationCode = String(bytes: code, encoding: .utf8)
+                print("Code \(authorizationCode)")
+            }
 
             if let identityTokenData = appleIDCredential.identityToken,
                 let identityTokenString = String(data: identityTokenData, encoding: .utf8) {
